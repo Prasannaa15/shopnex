@@ -311,37 +311,7 @@ export default function Feedback() {
           )}
         </div>
       )}
-      {feedbackState.showFeedbacks && feedbackState.feedbacks.length > 0 && (
-        <div style={{ 
-          maxWidth: '800px', 
-          margin: '2rem auto', 
-          background: 'white', 
-          padding: '1.5rem', 
-          borderRadius: '8px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1rem'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#3498db' }}>
-              {feedbackState.feedbacks.length}
-            </div>
-            <div style={{ color: '#666' }}>Total Feedbacks</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2ecc71' }}>
-              {Math.round(feedbackState.feedbacks.reduce((sum, f) => sum + f.rating, 0) / feedbackState.feedbacks.length * 10) / 10}
-            </div>
-            <div style={{ color: '#666' }}>Average Rating</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#e67e22' }}>
-              {feedbackState.feedbacks.filter(f => f.rating >= 4).length}
-            </div>
-            <div style={{ color: '#666' }}>Positive Ratings (4+)</div>
-          </div>
-        </div>
-      )}
+      
     </div>
   )
 }

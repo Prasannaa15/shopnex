@@ -2,6 +2,7 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
+
 // Safe localStorage access for Vercel
 const loadCartFromStorage = () => {
   try {

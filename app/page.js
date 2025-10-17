@@ -1,7 +1,7 @@
 'use client'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { addItem } from './cart/redux/cartSlice'
+import { addToCart } from './cart/redux/cartSlice'
 import { useState, useEffect } from 'react'
 
 const products = [
@@ -62,6 +62,7 @@ const products = [
     image: '/images/Power Bank.webp'
   }
 ]
+
 const formatPrice = (price) => {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -69,6 +70,7 @@ const formatPrice = (price) => {
     maximumFractionDigits: 0
   }).format(price)
 }
+
 export default function Home() {
   const dispatch = useDispatch()
   const cartItems = useSelector(state => state.cart.items)
@@ -81,7 +83,7 @@ export default function Home() {
   }, [])
 
   const handleAddToCart = (product) => {
-    dispatch(addItem(product))
+    dispatch(addToCart(product))
     setAlertMessage(`${product.name} added to cart!`)
     setShowAlert(true)
     setTimeout(() => setShowAlert(false), 3000)
@@ -90,10 +92,11 @@ export default function Home() {
   const isInCart = (productId) => {
     return cartItems.some(item => item.id === productId)
   }
+
   if (!isMounted) {
     return (
       <div>
-        <h1>Welcome to ShopNex India</h1>
+        <h1>Welcome to ShopNow India</h1>
         <p>Discover amazing products at great prices!</p>
         <div className="product-grid">
           {products.map(product => (

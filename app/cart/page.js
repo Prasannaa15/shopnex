@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeItem, clearCart, updateQuantity } from './redux/cartSlice'
 import { useState, useEffect } from 'react'
@@ -48,9 +48,9 @@ export default function Cart() {
         <div style={{ textAlign: 'center', padding: '4rem', background: 'white', borderRadius: '8px' }}>
           <h2>Your cart is empty</h2>
           <p>Browse our products and add some items to your cart!</p>
-          <a href="/" className="btn btn-primary" style={{ width: 'auto', display: 'inline-block', marginTop: '1rem' }}>
-            Continue Shopping
-          </a>
+          <Link href="/" className="btn btn-primary" style={{ width: 'auto', display: 'inline-block', marginTop: '1rem' }}>
+  Continue Shopping
+</Link>
         </div>
       </div>
     )

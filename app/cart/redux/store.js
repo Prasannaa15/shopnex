@@ -11,4 +11,10 @@ export const store = configureStore({
     user: userReducer,
     feedback: feedbackReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST'],
+      },
+    }),
 })
